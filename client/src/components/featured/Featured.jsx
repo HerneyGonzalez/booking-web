@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading} = useFetch(
-    "/hotels/countByCity?cities=Neiva,Cartagena,Bogotá, Medellin"
+    "/hotels/countByCity?cities=Neiva,Cartagena,Bogotá,Medellin"
   );
 
   return (
@@ -20,6 +20,18 @@ const Featured = () => {
             />
             <div className="featuredTitles">
               <h1>Neiva</h1>
+              <h2>{data[0]} Propiedades</h2>
+            </div>
+          </div>
+
+          <div className="featuredItem">
+            <img
+              src="https://visasencolombia.com/wp-content/uploads/2022/02/ciudad-de-medellin.jpg"
+              alt=""
+              className="featuredImg"
+            />
+            <div className="featuredTitles">
+              <h1>Medellin</h1>
               <h2>{data[0]} Propiedades</h2>
             </div>
           </div>
