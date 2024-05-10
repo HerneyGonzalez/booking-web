@@ -14,6 +14,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -33,7 +34,7 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user , logout} = useContext(AuthContext);
 
 
   const handleOption = (name, operation) => {
@@ -78,7 +79,23 @@ const Header = ({ type }) => {
             Obtenga recompensas por sus viajes: desbloquee ahorros instantáneos del 10% o
               más con una cuenta gratuita en RoadToRest
             </p>
-            {!user && <button className="headerBtn">Iniciar sesión / Registrarse</button>}
+            {!user ? (
+              <>
+              <Link to="/login" className="headerLink">
+                <button className="headerBtn">Iniciar sesión</button>
+              </Link>
+              <Link to="/register" className="headerLink">
+                <button className="headerBtn">Registra</button>
+              </Link>
+            </>
+            ) : (
+              <>
+                <button className="headerBtn" onClick={logout}>
+                  Cerrar sesión
+                </button>
+                <div>Bienvenido, {user.username}!</div> {/* Puedes mostrar el nombre de usuario si lo deseas */}
+              </>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

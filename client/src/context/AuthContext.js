@@ -6,7 +6,9 @@ const INITIAL_STATE = {
   error: null,
 };
 
-export const AuthContext = createContext(INITIAL_STATE);
+export const AuthContext = createContext({
+  INITIAL_STATE, 
+  logout: () => {} });
 
 const AuthReducer = (state, action) => {
   switch (action.type) {
@@ -42,6 +44,13 @@ const AuthReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user"); // Limpiar datos de usuario del localStorage
+    // Limpiar la cookie de sesión si es necesario
+    document.cookie = ""; // Descomenta esta línea si estás utilizando cookies para la autenticación
+  };
+
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
@@ -53,6 +62,7 @@ export const AuthContextProvider = ({ children }) => {
         loading: state.loading,
         error: state.error,
         dispatch,
+        logout,
       }}
     >
       {children}
