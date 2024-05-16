@@ -79,13 +79,13 @@ const Header = ({ type }) => {
             Obtenga recompensas por sus viajes: desbloquee ahorros instantáneos del 10% o
               más con una cuenta gratuita en RoadToRest
             </p>
-            {!user ? (
+            {/* {!user ? (
               <>
               <Link to="/login" className="headerLink">
                 <button className="headerBtn">Iniciar sesión</button>
               </Link>
               <Link to="/register" className="headerLink">
-                <button className="headerBtn">Registra</button>
+                <button className="headerBtn">Registrarse</button>
               </Link>
             </>
             ) : (
@@ -93,9 +93,9 @@ const Header = ({ type }) => {
                 <button className="headerBtn" onClick={logout}>
                   Cerrar sesión
                 </button>
-                <div>Bienvenido, {user.username}!</div> {/* Puedes mostrar el nombre de usuario si lo deseas */}
+                <div>Bienvenido, {user.username}!</div>
               </>
-            )}
+            )} */}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
