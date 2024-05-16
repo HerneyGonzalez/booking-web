@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="lContainer">
-        <h2>Inisio de sesión</h2>
+        <h2>Inicio de sesión</h2>
         <form onSubmit={handleClick}>
           <div className="form-group">
             <input
