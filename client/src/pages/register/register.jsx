@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./register.css";
-import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +15,16 @@ const Register = () => {
   });
   const { loading, error, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Agregar la clase al montar el componente
+    document.body.classList.add("register-page");
+
+    // Quitar la clase al desmontar el componente
+    return () => {
+      document.body.classList.remove("register-page");
+    };
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

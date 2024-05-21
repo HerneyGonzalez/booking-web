@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
@@ -12,6 +12,16 @@ const Login = () => {
 
   const { loading, error, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Agregar la clase al montar el componente
+    document.body.classList.add("login-page");
+
+    // Quitar la clase al desmontar el componente
+    return () => {
+      document.body.classList.remove("login-page");
+    };
+  }, []);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.id]: e.target.value });

@@ -33,7 +33,7 @@ const Navbar = () => {
             <>
               <div>Bienvenido, {user.username}</div>{" "}
               {/* Puedes mostrar el nombre de usuario si lo deseas */}
-              <button className="headerBtn" onClick={handleLogout}>
+              <button className="navbarBtn" onClick={handleLogout}>
                 Cerrar sesión
               </button>
             </>

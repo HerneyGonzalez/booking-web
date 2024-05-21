@@ -27,14 +27,15 @@
   margin-right: 10px; /* Ajusta el espacio entre los botones */
 }
 
-.headerBtn {
+.navbarBtn {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   color: #ffffff;
   background-color: transparent;
+  margin-left: 8px;
 }
 
-.headerBtn:hover {
+.navbarBtn:hover {
   background-color: rgba(255, 255, 255, 0.74); /* Cambia el color de fondo al pasar el ratón */
 }

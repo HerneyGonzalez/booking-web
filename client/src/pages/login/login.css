@@ -1,16 +1,28 @@
 /* login.css */
 
+body.login-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://hotel.hardrock.com/cancun/files/6134/STAY-LIKE-A-LEGEND-CANCUN-CAMPAIGN.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .lContainer {
   width: 300px;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: rgba(244, 244, 244, 0.9); /* Cambia la opacidad para que se vea la imagen de fondo */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -58,5 +70,3 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
-
-

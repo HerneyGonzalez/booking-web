@@ -47,6 +47,10 @@
   cursor: pointer;
 }
 
+.headerBtn:hover {
+  background-color: rgba(255, 255, 255, 0.74); /* Cambia el color de fondo al pasar el ratón */
+}
+
 .headerSearch {
   height: 30px;
   background-color: white;
