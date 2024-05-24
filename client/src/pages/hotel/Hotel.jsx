@@ -24,7 +24,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
-  const { data, loading,} = useFetch(`/hotels/find/${id}`);
+  const { data, loading } = useFetch(`/hotels/find/${id}`);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -98,20 +98,20 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-          <button className="bookNow" onClick={handleClick}>
-              ¡Reserva o Reserva Ahora!
-            </button>
+            {/* <button className="bookNow" onClick={handleClick}>
+              ¡Reserva Ahora!
+            </button> */}
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-            Excelente ubicación – {data.distance}m desde el centro
+              Excelente ubicación – {data.distance}m desde el centro
             </span>
             <span className="hotelPriceHighlight">
-            Reserva una estancia ${data.cheapestPrice} en esta propiedad y obtenga un
-              taxi gratis al aeropuerto
+              Reserva una estancia ${data.cheapestPrice} en esta propiedad y
+              obtenga un taxi gratis al aeropuerto
             </span>
             <div className="hotelImages">
               {data.photos?.map((photo, i) => (
@@ -133,8 +133,8 @@ const Hotel = () => {
               <div className="hotelDetailsPrice">
                 <h1>Perfecto para un {days}-estancia de noche!</h1>
                 <span>
-                Situada en el verdadero corazón de Colombia, esta propiedad tiene una
-                  excelente ubicación. puntuación de 9,8!
+                  Situada en el verdadero corazón de Colombia, esta propiedad
+                  tiene una excelente ubicación. puntuación de 9,8!
                 </span>
                 <h2>
                   <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
@@ -148,7 +148,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };
