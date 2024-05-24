@@ -1,23 +1,46 @@
-.footer{
+.footer {
   width: 100%;
-  width: 1024px;
+  max-width: 1024px;
   font-size: 12px;
+  margin: auto; /* Centrar el footer */
+  padding: 20px; /* Añadir padding para mejor apariencia */
+  box-sizing: border-box; /* Incluir padding y border en el ancho total */
 }
 
-.fLists{
+.fLists {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
   margin-bottom: 50px;
 }
 
-.fList{
+.fList {
   list-style: none;
   padding: 0;
+  flex: 1 1 200px; /* Asegurar que los elementos tengan al menos 200px de ancho */
+  margin: 10px 0; /* Añadir margen vertical para separación en pantallas pequeñas */
 }
 
-.fListItem{
+.fListItem {
   margin-bottom: 10px;
   color: #003580;
   cursor: pointer;
+}
+
+/* Media Queries para hacer la vista más responsive */
+@media (max-width: 768px) {
+  .fLists {
+    justify-content: space-around; /* Distribuir elementos uniformemente */
+  }
+
+  .fList {
+    flex: 1 1 calc(50% - 20px); /* Ajustar flex para dos columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .fList {
+    flex: 1 1 100%; /* Ajustar flex para una columna en pantallas pequeñas */
+  }
 }
