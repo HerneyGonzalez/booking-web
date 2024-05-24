@@ -7,8 +7,13 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import emailjs from '@emailjs/browser';
+
+
 
 const Reserve = ({ setOpen, hotelId }) => {
+  const { user } = useContext(AuthContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data} = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
@@ -61,6 +66,13 @@ const Reserve = ({ setOpen, hotelId }) => {
           return res.data;
         })
       );
+      const templateParams = {
+        from_name: "Road To Rest",
+        user_name: user.username,
+        user_email: user.email,
+        
+      };
+      emailjs.send('service_9yj0wgk', 'template_8jnc8xf', templateParams,'M_BlNb7tua4jwiQHw')
       setOpen(false);
       navigate("/");
     } catch (err) {}
@@ -102,6 +114,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         <button onClick={handleClick} className="rButton">
         ¡Reservar ahora!
         </button>
+        
       </div>
     </div>
   );
