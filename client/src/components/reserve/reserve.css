@@ -1,3 +1,4 @@
+/* Estilos generales */
 .reserve {
   width: 100vw;
   height: 100vh;
@@ -8,26 +9,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px; /* Añade algo de padding para asegurar el espacio en pantallas pequeñas */
 }
 
 .rContainer {
   background-color: white;
   padding: 20px;
   position: relative;
+  max-width: 600px; /* Limita el ancho máximo para que no se extienda demasiado en pantallas grandes */
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .rClose {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px; /* Ajusta el espacio desde la parte superior */
+  right: 10px; /* Ajusta el espacio desde la parte derecha */
   cursor: pointer;
 }
 
 .rItem {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 20px; /* Reduce el gap para un mejor ajuste en pantallas pequeñas */
   padding: 20px;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
 .rInfo {
@@ -52,7 +59,7 @@
   font-weight: 500;
 }
 
-.rSelectRooms{
+.rSelectRooms {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -60,7 +67,7 @@
   color: gray;
 }
 
-.room{
+.room {
   display: flex;
   flex-direction: column;
 }
@@ -75,4 +82,28 @@
   border-radius: 5px;
   width: 100%;
   margin-top: 20px;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .rItem {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 10px; /* Reduce el gap entre elementos */
+  }
+
+  .rSelectRooms {
+    font-size: 10px; /* Aumenta ligeramente el tamaño de la fuente para mejorar la legibilidad */
+  }
+}
+
+@media (max-width: 480px) {
+  .rContainer {
+    padding: 15px; /* Reduce el padding para pantallas muy pequeñas */
+  }
+
+  .rButton {
+    padding: 10px 15px; /* Ajusta el padding del botón para pantallas pequeñas */
+    font-size: 14px; /* Ajusta el tamaño de la fuente del botón */
+  }
 }

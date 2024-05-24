@@ -52,6 +52,7 @@ const Login = () => {
               value={credentials.username}
               onChange={handleChange}
               className="lInput"
+              required
             />
           </div>
           <div className="form-group">
@@ -62,6 +63,7 @@ const Login = () => {
               value={credentials.password}
               onChange={handleChange}
               className="lInput"
+              required
             />
           </div>
           <button disabled={loading} type="submit" className="lButton">

@@ -30,8 +30,10 @@ const MailList = () => {
           <h1 className="mailTitle">¡Ahorre tiempo, ahorre dinero!</h1>
           <span className="mailDesc">Regístrate y te enviaremos las mejores ofertas</span>
           <label>Correo Electronico</label>
-          <input type="email" name="user_email" placeholder="example@example.com" required />
-          <input type="submit" value="Suscribete" />
+          <div className="mailInputContainer">
+            <input type="email" name="user_email" placeholder="example@example.com" required />
+            <input type="submit" value="Suscribete" />
+          </div>
           {message && <p>{message}</p>}
         </div>
       </form>

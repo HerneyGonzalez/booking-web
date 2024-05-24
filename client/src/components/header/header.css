@@ -2,24 +2,40 @@
   background-color: #003580;
   color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Cambiado para permitir flexibilidad en la disposición */
+  align-items: center;
   position: relative;
+  padding: 10px; /* Añadido para un mejor espaciado en pantallas pequeñas */
 }
 
 .headerContainer {
   width: 100%;
   max-width: 1024px;
   margin: 20px 0px 100px 0px;
+  text-align: center; /* Centrar el contenido en pantallas pequeñas */
 }
 
 .headerContainer.listMode {
   margin: 20px 0px 0px 0px;
 }
 
+.headerTitle {
+  text-align: left; /* Asegurar que el título quede a la izquierda */
+  width: 100%; /* Para que ocupe todo el ancho del contenedor */
+}
+
+.headerDesc {
+  margin: 20px 0px;
+  text-align: left; /* Asegurar que la descripción quede a la izquierda */
+  width: 100%; /* Para que ocupe todo el ancho del contenedor */
+}
+
 .headerList {
   display: flex;
-  gap: 40px;
-  margin-bottom: 50px;
+  flex-direction: left; /* Cambiado a columna para pantallas pequeñas */
+  gap: 20px; /* Reducido el gap para pantallas pequeñas */
+  margin-bottom: 30px; /* Reducido el margen inferior */
+  align-items: center; /* Centrar los elementos de la lista */
 }
 
 .headerListItem {
@@ -34,10 +50,6 @@
   border-radius: 20px;
 }
 
-.headerDesc {
-  margin: 20px 0px;
-}
-
 .headerBtn {
   background-color: #0071c2;
   color: white;
@@ -45,40 +57,43 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+  width: 100%; /* Asegurar que el botón ocupe todo el ancho en pantallas pequeñas */
+  max-width: 300px; /* Limitar el ancho máximo */
 }
 
 .headerBtn:hover {
-  background-color: rgba(255, 255, 255, 0.74); /* Cambia el color de fondo al pasar el ratón */
+  background-color: rgba(116, 138, 236, 0.74);
 }
 
 .headerSearch {
-  height: 30px;
+  height: auto; /* Permitir que el contenedor se ajuste automáticamente */
   background-color: white;
   border: 3px solid #febb02;
   display: flex;
+  flex-direction: column; /* Cambiar a columna para pantallas pequeñas */
   align-items: center;
-  justify-content: space-around;
-  padding: 10px 0px;
+  justify-content: center;
+  padding: 10px;
   border-radius: 5px;
-  position: absolute;
-  bottom: -25px;
-  width: 100%;
+  position: relative; /* Cambiar a relative para mejorar la disposición */
+  width: 90%;
   max-width: 1024px;
-}
-
-.headerIcon {
-  color: lightgray;
 }
 
 .headerSearchItem {
   display: flex;
+  flex-direction: column; /* Cambiar a columna para pantallas pequeñas */
   align-items: center;
   gap: 10px;
+  width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 
 .headerSearchInput {
   border: none;
   outline: none;
+  width: 100%; /* Asegurar que el input ocupe todo el ancho */
+  max-width: 300px; /* Limitar el ancho máximo */
+  padding: 5px; /* Añadir padding para mejor usabilidad */
 }
 
 .headerSearchText {
@@ -87,14 +102,15 @@
 }
 
 .date {
-  position: absolute;
-  top: 50px;
+  position: relative;
+  top: 30px;
   z-index: 2;
+
 }
 
 .options {
   z-index: 2;
-  position: absolute;
+  position: relative;
   top: 50px;
   background-color: white;
   color: gray;
@@ -104,7 +120,7 @@
 }
 
 .optionItem {
-  width: 200px;
+  width: 100%; /* Asegurar que ocupe todo el ancho */
   display: flex;
   justify-content: space-between;
   margin: 10px;
@@ -115,7 +131,7 @@
   align-items: center;
   gap: 10px;
   font-size: 12px;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .optionCounterButton {
@@ -129,4 +145,40 @@
 
 .optionCounterButton:disabled {
   cursor: not-allowed;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerTitle,
+  .headerDesc {
+    text-align: left;
+    width: auto;
+  }
+
+  .headerList {
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 50px;
+    text-align: left;
+  }
+
+  .headerSearch {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0px;
+    position: absolute;
+    bottom: -25px;
+  }
+
+  .headerSearchItem {
+    flex-direction: row;
+    width: auto;
+    text-align: center;
+  }
 }

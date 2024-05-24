@@ -20,7 +20,8 @@ body.register-page {
 }
 
 .rContainer {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9); /* Cambia la opacidad para que se vea la imagen de fondo */
   border-radius: 8px;
@@ -30,14 +31,16 @@ body.register-page {
 .rContainer h2 {
   margin-bottom: 20px;
   text-align: center;
+  font-size: 24px; /* Ajuste de tamaño de fuente */
 }
 
 .form-group {
   margin-bottom: 15px;
+  width: 95%;
 }
 
 .rInput {
-  width: 95%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -69,4 +72,23 @@ p a {
 
 p a:hover {
   text-decoration: underline;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 480px) {
+  .rContainer {
+    padding: 15px; /* Ajusta el padding en pantallas pequeñas */
+  }
+
+  .rContainer h2 {
+    font-size: 20px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+  }
+
+  .rInput {
+    padding: 8px; /* Ajusta el padding de los inputs en pantallas pequeñas */
+  }
+
+  .rButton {
+    padding: 8px; /* Ajusta el padding del botón en pantallas pequeñas */
+  }
 }
